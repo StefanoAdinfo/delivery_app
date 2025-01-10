@@ -16,8 +16,8 @@ import shopping_cart from "@/assets/icons/shopping-cart.png";
 import star from "@/assets/icons/star.png";
 import user from "@/assets/icons/user.png";
 import warning from "@/assets/icons/warning.png";
-
-export const icons = {
+import person from "@/assets/icons/person.png";
+export default {
   back,
   check,
   cutlery,
@@ -36,4 +36,5 @@ export const icons = {
   star,
   user,
   warning,
+  person,
 };

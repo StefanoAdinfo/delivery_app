@@ -10,7 +10,7 @@ import user from "@/assets/images/user.png";
 import welcome from "@/assets/images/welcome.png";
 import white_gradient from "@/assets/images/white-gradient.png";
 
-export const images = {
+export default {
   card_gradient,
   carusel1,
   carusel2,

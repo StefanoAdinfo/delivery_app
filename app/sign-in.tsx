@@ -21,7 +21,7 @@ const Auth = () => {
           height: "100%",
         }}
       >
-        <Text>Ciao</Text>
+        <Text>Sign-In</Text>
       </ScrollView>
     </SafeAreaView>
   );

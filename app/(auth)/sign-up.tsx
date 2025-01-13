@@ -89,12 +89,6 @@ const SignUp = () => {
                 </Text>
               </View>
             </TouchableOpacity>
-
-            <TouchableOpacity className="flex justify-center items-center">
-              <Text className="text-white font-poppins-light text-lg">
-                Forgot your password?
-              </Text>
-            </TouchableOpacity>
           </View>
         </SafeAreaView>
 

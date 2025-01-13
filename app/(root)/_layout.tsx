@@ -17,7 +17,7 @@ export default function AppLayout() {
   //   }
 
   if (!logged) {
-    return <Redirect href="/sign-in" />;
+    return <Redirect href="/TutorialCarousel" />;
   }
 
   return <Slot />;

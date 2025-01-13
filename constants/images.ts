@@ -7,7 +7,7 @@ import icon from "@/assets/images/icon.png";
 import icon2 from "@/assets/images/icon2.png";
 import splash_icon from "@/assets/images/splash-icon.png";
 import user from "@/assets/images/user.png";
-import welcome from "@/assets/images/welcome.png";
+import welcome from "@/assets/images/welcome.jpg";
 import white_gradient from "@/assets/images/white-gradient.png";
 
 export default {

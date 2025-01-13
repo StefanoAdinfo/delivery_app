@@ -17,6 +17,7 @@ import star from "@/assets/icons/star.png";
 import user from "@/assets/icons/user.png";
 import warning from "@/assets/icons/warning.png";
 import person from "@/assets/icons/person.png";
+import facebook from "@/assets/icons/facebook.png";
 export default {
   back,
   check,
@@ -37,4 +38,5 @@ export default {
   user,
   warning,
   person,
+  facebook,
 };

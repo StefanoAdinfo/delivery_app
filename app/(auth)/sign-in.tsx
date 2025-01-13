@@ -9,8 +9,9 @@ import {
   View,
   TouchableOpacity,
 } from "react-native";
-import LabeledInput from "@/components/LabeledInput";
+import { useGlobalContext } from "@/lib/global-provider";
 
+import LabeledInput from "@/components/LabeledInput";
 import images from "@/constants/images";
 import icons from "@/constants/icons";
 import { Link, router } from "expo-router";
@@ -18,7 +19,9 @@ import { Link, router } from "expo-router";
 const SignIn = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const { logged, setLogged } = useGlobalContext();
   const handlePress = ({ route }: { route: any }) => {
+    setLogged(true);
     router.push(route);
   };
 
@@ -70,7 +73,10 @@ const SignIn = () => {
           />
           {/* Pulsanti */}
           <View className="mt-16 ">
-            <TouchableOpacity className="bg-primary p-4 rounded-xl flex justify-center items-center mb-5">
+            <TouchableOpacity
+              className="bg-primary p-4 rounded-xl flex justify-center items-center mb-5"
+              onPress={() => handlePress({ route: "/" })}
+            >
               <Text className="text-white font-poppins-medium text-xl">
                 SIGN IN
               </Text>

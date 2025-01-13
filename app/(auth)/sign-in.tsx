@@ -7,19 +7,20 @@ import {
   Image,
   Text,
   View,
-  Button,
-  Pressable,
   TouchableOpacity,
 } from "react-native";
 import LabeledInput from "@/components/LabeledInput";
 
 import images from "@/constants/images";
 import icons from "@/constants/icons";
-import { Link } from "expo-router";
+import { Link, router } from "expo-router";
 
 const Auth = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const handlePress = () => {
+    router.push("/sign-up");
+  };
   return (
     // Serve a rimuovere la tastiera con il click outside
     <TouchableWithoutFeedback onPress={Keyboard.dismiss} className="bg-black">
@@ -92,13 +93,13 @@ const Auth = () => {
         </SafeAreaView>
 
         {/* Frase in fondo */}
-        <TouchableOpacity className="absolute bottom-2 w-full flex justify-center items-center p-5">
-          <Link href={"/sign-up"}>
-            <Text className="text-white font-poppins-light text-lg">
-              Don't have an account?{" "}
-              <Text className="text-primary">Sign up</Text>
-            </Text>
-          </Link>
+        <TouchableOpacity
+          className="absolute bottom-2 w-full flex justify-center items-center p-5"
+          onPress={handlePress}
+        >
+          <Text className="text-white font-poppins-light text-lg">
+            Don't have an account? <Text className="text-primary">Sign up</Text>
+          </Text>
         </TouchableOpacity>
       </KeyboardAvoidingView>
     </TouchableWithoutFeedback>

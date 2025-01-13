@@ -1,7 +1,9 @@
 import { useEffect } from "react";
 import { Stack } from "expo-router";
 import { useFonts } from "expo-font";
+import { StatusBar } from "expo-status-bar";
 import * as SplashScreen from "expo-splash-screen";
+import { useRoute } from "@react-navigation/native";
 
 import GlobalProvider from "@/lib/global-provider";
 
@@ -31,7 +33,22 @@ export default function RootLayout() {
 
   return (
     <GlobalProvider>
-      <Stack screenOptions={{ headerShown: false }} />
+      <Stack
+        screenOptions={({ route }) => ({
+          headerShown: route.name.includes("forgot-password") ? true : false,
+          headerTitle: route.name.includes("forgot-password") ? "" : "",
+          headerTintColor: route.name.includes("forgot-password")
+            ? "#f54257"
+            : "#f54257",
+          headerStyle: {
+            backgroundColor: route.name.includes("forgot-password")
+              ? "#f5f5f5f5"
+              : "#f5f5f5f5",
+          },
+
+          // screenOptions={{ headerShown: false }}
+        })}
+      />
     </GlobalProvider>
   );
 }

@@ -23,15 +23,15 @@ const LabeledInput: React.FC<LabeledInputProps> = ({
     <View className="mt-8">
       <Text
         className={`${
-          focused ? "text-white" : "text-gray-300"
-        } mb-2 font-poppins-light text-xl`}
+          focused ? "text-white" : "text-gray-400"
+        } mb-2 font-poppins-medium text-xl`}
       >
         {label}
       </Text>
       <TextInput
         secureTextEntry={isPassword}
         className={`text-white text-lg font-poppins-light border-b ${
-          focused ? "border-white" : "border-gray-500"
+          focused ? "border-white" : "border-gray-400"
         }`}
         onFocus={() => setFocused(true)}
         onBlur={() => setFocused(false)}

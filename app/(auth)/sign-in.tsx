@@ -6,47 +6,20 @@ import {
   TouchableWithoutFeedback,
   Image,
   Text,
-  TextInput,
   View,
   Button,
   Pressable,
   TouchableOpacity,
 } from "react-native";
+import LabeledInput from "@/components/LabeledInput";
 
 import images from "@/constants/images";
 import icons from "@/constants/icons";
-
-const LabeledInput = ({
-  label,
-  isPassword = false,
-}: {
-  label: string;
-  isPassword?: boolean;
-}) => {
-  const [focused, setFocused] = useState(false);
-
-  return (
-    <View className="mt-8">
-      <Text
-        className={`${
-          focused ? "text-white" : "text-gray-300"
-        } mb-2 font-poppins-light text-xl`}
-      >
-        {label}
-      </Text>
-      <TextInput
-        secureTextEntry={isPassword} // Campo password
-        className={`text-white text-lg font-poppins-light border-b ${
-          focused ? "border-white" : "border-gray-500"
-        }`}
-        onFocus={() => setFocused(true)}
-        onBlur={() => setFocused(false)}
-      />
-    </View>
-  );
-};
+import { Link } from "expo-router";
 
 const Auth = () => {
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
   return (
     // Serve a rimuovere la tastiera con il click outside
     <TouchableWithoutFeedback onPress={Keyboard.dismiss} className="bg-black">
@@ -82,9 +55,17 @@ const Auth = () => {
           </Text>
 
           {/* Campi di input */}
-          <LabeledInput label="User name" />
-          <LabeledInput label="Password" isPassword={true} />
-
+          <LabeledInput
+            label="User name"
+            value={username}
+            onChangeText={setUsername}
+          />
+          <LabeledInput
+            label="Password"
+            value={password}
+            onChangeText={setPassword}
+            isPassword={true}
+          />
           {/* Pulsanti */}
           <View className="mt-16 ">
             <TouchableOpacity className="bg-primary p-4 rounded-xl flex justify-center items-center mb-5">
@@ -112,9 +93,12 @@ const Auth = () => {
 
         {/* Frase in fondo */}
         <TouchableOpacity className="absolute bottom-2 w-full flex justify-center items-center p-5">
-          <Text className="text-white font-poppins-light text-lg">
-            Don't have an account? <Text className="text-primary">Sign up</Text>
-          </Text>
+          <Link href={"/sign-up"}>
+            <Text className="text-white font-poppins-light text-lg">
+              Don't have an account?{" "}
+              <Text className="text-primary">Sign up</Text>
+            </Text>
+          </Link>
         </TouchableOpacity>
       </KeyboardAvoidingView>
     </TouchableWithoutFeedback>

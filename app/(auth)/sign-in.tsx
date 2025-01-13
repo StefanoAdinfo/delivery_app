@@ -19,7 +19,7 @@ import { Link, router } from "expo-router";
 const SignIn = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  const { logged, setLogged } = useGlobalContext();
+  const { setLogged } = useGlobalContext();
   const handlePress = ({ route }: { route: any }) => {
     setLogged(true);
     router.push(route);

@@ -12,24 +12,22 @@ const TabIcon = ({
   icon: ImageSourcePropType;
   title: string;
 }) => (
-  <View className="flex-1 mt-3 flex flex-col items-center justify-center w-full h-full">
+  <View className="flex-1 mt-3 flex flex-col items-center">
     <Image
       source={icon}
       tintColor={focused ? "#f54257" : "#666876"}
       resizeMode="contain"
       style={{
-        width: 42,
+        aspectRatio: 1,
         height: 32,
       }}
     />
     <Text
-      style={{
-        color: focused ? "#f54257" : "#666876",
-        fontSize: 13,
-        fontWeight: focused ? "bold" : "normal",
-        textAlign: "center",
-        marginTop: 3,
-      }}
+      className={`${
+        focused
+          ? "text-primary font-poppins-medium"
+          : "text-black-200 font-poppins-light"
+      } text-xs w-full text-center mt-1`}
     >
       {title}
     </Text>
@@ -45,7 +43,7 @@ const TabsLayout = () => {
           backgroundColor: "white",
           position: "absolute",
           borderTopColor: "#0061FF1A",
-          borderTopWidth: 1,
+          borderTopWidth: 2,
           minHeight: 70,
         },
       }}

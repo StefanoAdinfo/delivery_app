@@ -16,11 +16,13 @@ import {
 } from "react-native";
 
 import icons from "@/constants/icons";
+
+import CardCarusel from "@/components/CardCarusel";
 export default function Home() {
   return (
     <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
       <KeyboardAvoidingView behavior="height" className="flex-1 ">
-        <SafeAreaView className="bg-primary h-[200px] ">
+        <SafeAreaView className="bg-primary ">
           <View className="mb-5 mt-5 px-5">
             <View className="flex flex-row justify-between">
               <Text className="text-white text-4xl font-poppins-bold">
@@ -63,7 +65,11 @@ export default function Home() {
               </View>
             </View>
           </View>
-          <ScrollView></ScrollView>
+        </SafeAreaView>
+        <SafeAreaView className="flex-1 mt-10 ">
+          <ScrollView className="px-5">
+            <CardCarusel></CardCarusel>
+          </ScrollView>
         </SafeAreaView>
       </KeyboardAvoidingView>
     </TouchableWithoutFeedback>

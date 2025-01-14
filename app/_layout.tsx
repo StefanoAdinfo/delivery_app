@@ -1,10 +1,9 @@
 import { useEffect } from "react";
 import { Stack } from "expo-router";
 import { useFonts } from "expo-font";
+import { AppRegistry } from "react-native";
 import { StatusBar } from "expo-status-bar";
 import * as SplashScreen from "expo-splash-screen";
-import { useRoute } from "@react-navigation/native";
-
 import GlobalProvider from "@/lib/global-provider";
 
 import "./global.css";

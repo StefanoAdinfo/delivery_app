@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import {
   View,
   Text,
@@ -49,10 +49,11 @@ const TutorialCarousel = () => {
           router.push("/sign-in");
         }}
       >
-        <Text className="text-red-500 font-bold">Skip &gt;&gt;</Text>
+        <Text className="text-primary font-poppins-light">Skip &gt;&gt;</Text>
       </TouchableOpacity>
       {/* Carousel */}
       <Carousel
+        loop={false}
         width={width}
         height={height}
         data={data}

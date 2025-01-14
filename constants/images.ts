@@ -9,6 +9,10 @@ import splash_icon from "@/assets/images/splash-icon.png";
 import user from "@/assets/images/user.png";
 import welcome from "@/assets/images/welcome.jpg";
 import white_gradient from "@/assets/images/white-gradient.png";
+import giapponese2 from "@/assets/images/giapponese2.jpg";
+import pasta1 from "@/assets/images/pasta1.jpg";
+import pizza1 from "@/assets/images/pizza1.jpg";
+import verdure1 from "@/assets/images/verdure1.jpg";
 
 export default {
   card_gradient,
@@ -22,4 +26,8 @@ export default {
   user,
   welcome,
   white_gradient,
+  giapponese2,
+  pasta1,
+  pizza1,
+  verdure1,
 };

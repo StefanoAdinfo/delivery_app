@@ -21,13 +21,13 @@ const stars = [1, 2, 3, 4, 5];
 const Card = () => {
   return (
     <TouchableOpacity
-      className="flex-1 w-80 my-4  bg-white relative"
+      className="flex-1 w-80 my-4 h-full  bg-white relative"
       style={{
         // Box shadow con una leggera sfocatura per un effetto elegante
         shadowColor: "#000", // Colore dell'ombra
-        shadowOffset: { width: 0, height: 2 }, // Direzione dell'ombra (sopra/basso)
-        shadowOpacity: 0.5, // Opacità dell'ombra
-        shadowRadius: 3, // Sfocatura dell'ombra (più alto = più sfocato)
+        shadowOffset: { width: 0, height: 0 }, // Direzione dell'ombra (sopra/basso)
+        shadowOpacity: 0.6, // Opacità dell'ombra
+        shadowRadius: 4, // Sfocatura dell'ombra (più alto = più sfocato)
         elevation: 5, // Ombra per Android
         borderRadius: 6,
       }}
@@ -84,8 +84,8 @@ const CardCarusel = () => {
           <View
             style={{
               flex: 1,
-              marginLeft: 5,
-              marginRight: 10,
+              marginLeft: 10,
+              marginRight: 12,
             }}
           >
             <Card />

@@ -14,6 +14,8 @@ import {
   SafeAreaView,
 } from "react-native";
 
+import FeaturedCard from "./FeaturedCard";
+
 import images from "@/constants/images";
 import icons from "@/constants/icons";
 
@@ -30,6 +32,7 @@ const Card = () => {
         shadowRadius: 4, // Sfocatura dell'ombra (più alto = più sfocato)
         elevation: 5, // Ombra per Android
         borderRadius: 6,
+        marginLeft: 4,
       }}
     >
       <View className="flex flex-row items-center absolute px-2 top-2 right-0 p-1 z-50">
@@ -44,10 +47,10 @@ const Card = () => {
 
       <View className="flex flex-col mt-2 px-2 pb-2">
         <Text className="text-lg font-poppins-bold text-black-300">
-          Giappone Riso
+          Crispy Chicken Sandwich
         </Text>
-        <Text className="text-sm font-poppins-medium text-black-100">
-          Giapponese riso
+        <Text className="text-md font-poppins-bold text-headline">
+          Korean BBQ
         </Text>
 
         <View className="flex flex-row items-center justify-between mt-4">
@@ -63,34 +66,46 @@ const Card = () => {
   );
 };
 
-const CardCarusel = () => {
+const CardCarusel = ({
+  orientation,
+  title,
+  text,
+}: {
+  orientation?: string;
+  title: string;
+  text: string;
+}) => {
   return (
-    <View>
-      <View className="flex flex-row items-center justify-between ">
+    <View style={{ paddingBottom: 24 }}>
+      <View className="flex flex-row items-center justify-between mx-1">
         <Text className="font-poppins-bold" style={{ fontSize: 20 }}>
-          Treading this week
+          {title}
         </Text>
         <TouchableOpacity>
-          <Text className="font-poppins-light text-primary">
-            View all &gt;&gt;
+          <Text className="font-poppins-medium text-primary">
+            {text} &gt;&gt;
           </Text>
         </TouchableOpacity>
       </View>
       <FlatList
-        horizontal
+        nestedScrollEnabled={true}
+        {...(orientation === "horizontal" ? { horizontal: true } : {})}
         showsHorizontalScrollIndicator={false}
         data={[1, 2, 3, 4]}
-        renderItem={({ item, index }) => (
-          <View
-            style={{
-              flex: 1,
-              marginLeft: 10,
-              marginRight: 12,
-            }}
-          >
-            <Card />
-          </View>
-        )}
+        renderItem={({ item, index }) => {
+          return orientation === "horizontal" ? (
+            <View
+              style={{
+                flex: 1,
+                marginRight: 12,
+              }}
+            >
+              <Card />
+            </View>
+          ) : (
+            <FeaturedCard item={item} />
+          );
+        }}
         keyExtractor={(item, index) => index.toString()}
       />
     </View>

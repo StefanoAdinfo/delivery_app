@@ -17,6 +17,18 @@ import {
 
 import icons from "@/constants/icons";
 
+const caruselData = [
+  {
+    orientation: "horizontal",
+    title: "Trending this week",
+    text: "View all",
+  },
+  {
+    title: "Most Popular",
+    text: "26 places",
+  },
+];
+
 import CardCarusel from "@/components/CardCarusel";
 export default function Home() {
   return (
@@ -66,10 +78,21 @@ export default function Home() {
             </View>
           </View>
         </SafeAreaView>
-        <SafeAreaView className="flex-1 mt-10 ">
-          <ScrollView className="px-5">
-            <CardCarusel></CardCarusel>
-          </ScrollView>
+        <SafeAreaView className="flex-1 mt-10">
+          <FlatList
+            data={caruselData}
+            renderItem={({ item, index }) => (
+              <View key={index}>
+                <CardCarusel
+                  orientation={item.orientation}
+                  title={item.title}
+                  text={item.text}
+                />
+              </View>
+            )}
+            keyExtractor={(_, index) => index.toString()}
+            contentContainerStyle={{ paddingHorizontal: 16 }}
+          />
         </SafeAreaView>
       </KeyboardAvoidingView>
     </TouchableWithoutFeedback>

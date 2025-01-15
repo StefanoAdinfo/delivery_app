@@ -49,7 +49,7 @@ const TutorialCarousel = () => {
           router.push("/sign-in");
         }}
       >
-        <Text className="text-primary font-poppins-light">Skip &gt;&gt;</Text>
+        <Text className="text-primary font-poppins-medium">Skip &gt;&gt;</Text>
       </TouchableOpacity>
       {/* Carousel */}
       <Carousel

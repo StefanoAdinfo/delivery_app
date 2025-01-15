@@ -5,10 +5,16 @@ import { AppRegistry } from "react-native";
 import { StatusBar } from "expo-status-bar";
 import * as SplashScreen from "expo-splash-screen";
 import GlobalProvider from "@/lib/global-provider";
+import "react-native-reanimated";
+import { LogBox } from "react-native";
 
 import "./global.css";
 
 export default function RootLayout() {
+  LogBox.ignoreLogs([
+    "[Reanimated] Reading from `value` during component render.", // Ignora questo specifico warning
+  ]);
+
   // creo un array di fonts da caricare
   const [fontsLoaded] = useFonts({
     "Poppins-Bold": require("../assets/fonts/Poppins-Bold.ttf"),

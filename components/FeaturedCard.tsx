@@ -18,14 +18,17 @@ import images from "@/constants/images";
 import icons from "@/constants/icons";
 
 const stars = [1, 2, 3, 4, 5];
-
-const FeaturedCard = ({ item }: any) => {
+interface Props {
+  onPress?: () => void;
+}
+const FeaturedCard = ({ onPress }: Props) => {
   return (
     <TouchableOpacity
       className="flex-1  my-4 h-[250px] mx-1 p-3 bg-white relative"
+      onPress={onPress}
       style={{
         // Box shadow con una leggera sfocatura per un effetto elegante
-        shadowColor: "#000", // Colore dell'ombra
+        shadowColor: "#898989", // Colore dell'ombra
         shadowOffset: { width: 0, height: 0 }, // Direzione dell'ombra (sopra/basso)
         shadowOpacity: 0.6, // Opacità dell'ombra
         shadowRadius: 4, // Sfocatura dell'ombra (più alto = più sfocato)
@@ -47,7 +50,7 @@ const FeaturedCard = ({ item }: any) => {
         )}
       /> */}
 
-      <Image source={images.giapponese2} className="w-full h-40 rounded-md" />
+      <Image source={images.giapponese2} className="w-full h-40 rounded-md " />
       <View className="flex flex-col mt-2 px-2 pb-2">
         <Text className="text-lg font-poppins-bold text-black-300">
           Conrad Chicago Restaurant

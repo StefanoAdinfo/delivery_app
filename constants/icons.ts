@@ -19,6 +19,8 @@ import warning from "@/assets/icons/warning.png";
 import person from "@/assets/icons/person.png";
 import facebook from "@/assets/icons/facebook.png";
 import heart from "@/assets/icons/heart.png";
+import fastForward from "@/assets/icons/fast-forward.png";
+import leftArrow from "@/assets/icons/left-arrow.png";
 export default {
   back,
   check,
@@ -41,4 +43,6 @@ export default {
   person,
   facebook,
   heart,
+  fastForward,
+  leftArrow,
 };

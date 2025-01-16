@@ -7,12 +7,13 @@ import {
   TouchableOpacity,
   Dimensions,
 } from "react-native";
-import Carousel from "react-native-reanimated-carousel";
+import { Carousel } from "@/components/Carousel";
+import { CarouselItem } from "@/components/Carousel";
+
 import { router } from "expo-router";
 
 import images from "@/constants/images";
-
-const { width, height } = Dimensions.get("window");
+import icons from "@/constants/icons";
 
 const TutorialCarousel = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -49,10 +50,13 @@ const TutorialCarousel = () => {
           router.push("/sign-in");
         }}
       >
-        <Text className="text-primary font-poppins-medium">Skip &gt;&gt;</Text>
+        <View className="flex-row items-center">
+          <Text className="text-primary font-poppins-bold mr-1">Skip</Text>
+          <Image source={icons.fastForward} />
+        </View>
       </TouchableOpacity>
       {/* Carousel */}
-      <Carousel
+      {/* <Carousel
         loop={false}
         width={width}
         height={height}
@@ -82,7 +86,17 @@ const TutorialCarousel = () => {
             )}
           </View>
         )}
+      /> */}
+
+      <Carousel
+        items={data}
+        renderItem={({ item, isSnapPoint }) => (
+          <CarouselItem key={item.id} isSnapPoint={isSnapPoint}>
+            <Image source={item.image} className="w-72 h-72 mb-8" />
+          </CarouselItem>
+        )}
       />
+
       {/* barra progressi */}
       <View className="absolute bottom-10 left-0 right-0 flex-row justify-center items-center">
         {data.map((_, index) => (

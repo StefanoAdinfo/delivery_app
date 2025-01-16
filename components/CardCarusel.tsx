@@ -15,24 +15,35 @@ import {
 } from "react-native";
 
 import FeaturedCard from "./FeaturedCard";
+import { router } from "expo-router";
 
 import images from "@/constants/images";
 import icons from "@/constants/icons";
 
 const stars = [1, 2, 3, 4, 5];
-const Card = () => {
+
+const handleCardPress = (id: string) => router.push(`/show_plate/${id}`);
+const handleFeaturedCardPress = (id: string) =>
+  router.push(`/show_restaurant/${id}`);
+
+interface Props {
+  onPress?: () => void;
+}
+const Card = ({ onPress }: Props) => {
   return (
     <TouchableOpacity
-      className="flex-1 w-80 my-4 h-full  bg-white relative"
+      onPress={onPress}
+      className=" w-80 my-4  relative"
       style={{
         // Box shadow con una leggera sfocatura per un effetto elegante
-        shadowColor: "#000", // Colore dell'ombra
+        shadowColor: "#898989", // Colore dell'ombra
         shadowOffset: { width: 0, height: 0 }, // Direzione dell'ombra (sopra/basso)
         shadowOpacity: 0.6, // Opacità dell'ombra
         shadowRadius: 4, // Sfocatura dell'ombra (più alto = più sfocato)
         elevation: 5, // Ombra per Android
         borderRadius: 6,
         marginLeft: 4,
+        backgroundColor: "white",
       }}
     >
       <View className="flex flex-row items-center absolute px-2 top-2 right-0 p-1 z-50">
@@ -45,7 +56,7 @@ const Card = () => {
 
       <Image source={images.giapponese2} className="w-full h-40 rounded-t-md" />
 
-      <View className="flex flex-col mt-2 px-2 pb-2">
+      <View className="flex flex-col mt-2 px-2 pb-3">
         <Text className="text-lg font-poppins-bold text-black-300">
           Crispy Chicken Sandwich
         </Text>
@@ -100,10 +111,16 @@ const CardCarusel = ({
                 marginRight: 12,
               }}
             >
-              <Card />
+              <Card
+                onPress={() => handleCardPress(item.toString())}
+                key={index}
+              />
             </View>
           ) : (
-            <FeaturedCard item={item} />
+            <FeaturedCard
+              onPress={() => handleFeaturedCardPress(item.toString())}
+              key={index}
+            />
           );
         }}
         keyExtractor={(item, index) => index.toString()}
